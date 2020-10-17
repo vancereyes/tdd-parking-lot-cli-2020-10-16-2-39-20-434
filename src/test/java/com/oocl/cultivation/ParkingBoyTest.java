@@ -68,9 +68,12 @@ class ParkingBoyTest {
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(10));
         //when
-        Car fetchedCar = parkingBoy.fetch(null);
+            RuntimeException exception = assertThrows(MissingTicketException.class, () ->{
+                parkingBoy.fetch(null);
+            });
+
         //then
-            assertNull(fetchedCar);
+            assertEquals("Missing ticket", exception.getMessage());
     }
 
     @Test
