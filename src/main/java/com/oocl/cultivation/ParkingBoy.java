@@ -15,7 +15,6 @@ public class ParkingBoy {
 
 
     public Car fetch(ParkingTicket parkingTicket)  {
-
         return parkingLot.fetch(parkingTicket);
     }
 
