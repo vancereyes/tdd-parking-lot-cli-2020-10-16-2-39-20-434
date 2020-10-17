@@ -84,9 +84,13 @@ class ParkingBoyTest {
         ParkingTicket parkingTicket = parkingBoy.park(car);
         //when
         Car fetchedCar1 = parkingBoy.fetch(parkingTicket);
-        Car fetchedCar = parkingBoy.fetch(parkingTicket);
+
+        RuntimeException exception = assertThrows(UnrecognizedTicketException.class, () -> {
+            Car fetchedCar = parkingBoy.fetch(parkingTicket);
+        });
+
         //then
-        assertNull(fetchedCar);
+        assertEquals("Unrecognized parking ticket", exception.getMessage());
     }
     
     @Test
@@ -97,9 +101,11 @@ class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
         parkingBoy.park(car);
         //when
-        ParkingTicket ticket = parkingBoy.park(car2);
+        RuntimeException exception = assertThrows(NotEnoughCapacity.class, () ->{
+            parkingBoy.park(car2);
+        });
         //then
-        assertSame(null,ticket);
+        assertEquals("Not enough capacity", exception.getMessage());
     }
 
 }

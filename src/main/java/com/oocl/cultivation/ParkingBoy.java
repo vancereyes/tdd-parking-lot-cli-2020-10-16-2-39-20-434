@@ -18,6 +18,8 @@ public class ParkingBoy {
         Car car = parkingLot.fetch(parkingTicket);
         if (car != null) {
             return car;
+        } else if (parkingTicket == null){
+            throw new MissingTicketException("Missing ticket");
         } else {
             throw new UnrecognizedTicketException("Unrecognized parking ticket");
         }
