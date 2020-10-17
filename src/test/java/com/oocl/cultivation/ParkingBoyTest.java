@@ -53,11 +53,13 @@ class ParkingBoyTest {
             Car car = new Car();
             ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(10));
             ParkingTicket wrongTicket = new ParkingTicket();
-
             //when
-            Car fetchedCar = parkingBoy.fetch(wrongTicket);
+            RuntimeException exception = assertThrows(UnrecognizedTicketException.class, () -> {
+                parkingBoy.fetch(wrongTicket);
+            });
+
             //then
-            assertSame(null, fetchedCar);
+            assertEquals("Unrecognized parking ticket", exception.getMessage());
         }
 
         @Test
