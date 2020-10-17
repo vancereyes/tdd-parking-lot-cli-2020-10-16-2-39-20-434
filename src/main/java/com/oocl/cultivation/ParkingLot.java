@@ -20,7 +20,9 @@ public class ParkingLot {
             ticketCarMap.put(ticket, car);
             capacity -= 1;
             return ticket;
-        } return null;
+        } else {
+            throw new NotEnoughCapacity("Not enough capacity");
+        }
     }
 
     public Car fetch(ParkingTicket parkingTicket){
