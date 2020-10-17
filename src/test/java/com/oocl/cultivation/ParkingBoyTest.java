@@ -82,7 +82,20 @@ class ParkingBoyTest {
         Car fetchedCar = parkingBoy.fetch(parkingTicket);
         //then
         assertNull(fetchedCar);
-
+    }
+    
+    @Test
+    public void should_return_no_ticket_and_park_fail_when_park_given_capacity_is_full() {
+        //given
+        Car car = new Car();
+        Car car2 = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        parkingBoy.park(car);
+        //when
+        ParkingTicket ticket = parkingBoy.park(car2);
+        //then
+        assertNull(ticket);
+        
     }
 
 }
