@@ -16,9 +16,10 @@ class ParkingBoyTest {
         //then
         assertNotNull(ticket);
     }
-    
+
+
     @Test
-    public void should_have_right_car_when_fetch_given_parking_ticket() {
+    public void should_fetch_right_car_when_parking_boy_fetch_given_parking_ticket(){
         //given
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
@@ -27,8 +28,10 @@ class ParkingBoyTest {
         Car fetchedCar = parkingBoy.fetch(parkingTicket);
         //then
         assertSame(car, fetchedCar);
-        
     }
+
+
+
 
 }
 
