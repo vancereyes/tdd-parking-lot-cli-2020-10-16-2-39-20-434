@@ -14,7 +14,7 @@ class ParkingBoyTest {
     public void should_return_ticket_when_car_is_park_given_parked_car() {
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(10));
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
         //when
         ParkingTicket ticket = parkingBoy.park(car);
         //then
@@ -26,7 +26,7 @@ class ParkingBoyTest {
     public void should_fetch_right_car_when_parking_boy_fetch_given_parking_ticket(){
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(10));
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
         ParkingTicket parkingTicket = parkingBoy.park(car);
         //when
         Car fetchedCar = parkingBoy.fetch(parkingTicket);
@@ -39,7 +39,7 @@ class ParkingBoyTest {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(10));
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
         ParkingTicket parkingTicket1 = parkingBoy.park(car1);
         ParkingTicket parkingTicket2 = parkingBoy.park(car2);
         //when
@@ -55,7 +55,7 @@ class ParkingBoyTest {
             //given
 
             Car car = new Car();
-            ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(10));
+            ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
             ParkingTicket wrongTicket = new ParkingTicket();
             //when
             RuntimeException exception = assertThrows(UnrecognizedTicketException.class, () -> {
@@ -70,7 +70,7 @@ class ParkingBoyTest {
     public void should_fetch_no_car_when_fetch_car_given_no_ticket(){
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(10));
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
         //when
             RuntimeException exception = assertThrows(MissingTicketException.class, () ->{
                 parkingBoy.fetch(null);
@@ -84,7 +84,7 @@ class ParkingBoyTest {
     public void should_fetch_no_car_when_fetch_given_used_ticket() {
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(10));
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
         ParkingTicket parkingTicket = parkingBoy.park(car);
         //when
         Car fetchedCar1 = parkingBoy.fetch(parkingTicket);
@@ -102,7 +102,7 @@ class ParkingBoyTest {
         //given
         Car car = new Car();
         Car car2 = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(1)));
         parkingBoy.park(car);
         //when
         RuntimeException exception = assertThrows(NotEnoughCapacity.class, () ->{
@@ -116,16 +116,16 @@ class ParkingBoyTest {
         public void should_park_sequentially_when_park_given_multiple_parking_lots() {
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy();
-        List<ParkingLot> parkingLotArrayList = new ArrayList<>(asList(new ParkingLot(3,0)
-                , new ParkingLot(3,0)));
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(3)
+                , new ParkingLot(3)));
         //when
-        parkingBoy.setParkingLots(parkingLotArrayList);
         parkingBoy.park(car);
         //then
         assertEquals(1, parkingBoy.getParkingLotArrayList().get(0).getParkedCarsSize());
         assertEquals(0, parkingBoy.getParkingLotArrayList().get(1).getParkedCarsSize());
     }
+
+
 
 }
 

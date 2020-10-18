@@ -18,8 +18,8 @@ public class ParkingLot {
         this(10);
     }
 
-    public ParkingLot(int lotCapacity, int carsParked) {
-
+    public boolean isFull(){
+        return capacity == getParkedCarsSize();
     }
 
 
