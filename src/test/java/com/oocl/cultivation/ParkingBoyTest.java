@@ -2,6 +2,10 @@ package com.oocl.cultivation;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ParkingBoyTest {
@@ -106,6 +110,21 @@ class ParkingBoyTest {
         });
         //then
         assertEquals("Not enough capacity", exception.getMessage());
+    }
+
+    @Test
+        public void should_park_sequentially_when_park_given_multiple_parking_lots() {
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        List<ParkingLot> parkingLotArrayList = new ArrayList<>(asList(new ParkingLot(3,0)
+                , new ParkingLot(3,0)));
+        //when
+        parkingBoy.setParkingLots(parkingLotArrayList);
+        parkingBoy.park(car);
+        //then
+        assertEquals(1, parkingBoy.getParkingLotArrayList().get(0).getParkedCarsSize());
+        assertEquals(0, parkingBoy.getParkingLotArrayList().get(1).getParkedCarsSize());
     }
 
 }
