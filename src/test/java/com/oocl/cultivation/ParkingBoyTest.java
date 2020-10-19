@@ -20,7 +20,7 @@ class ParkingBoyTest {
 
 
     @Test
-    public void should_fetch_right_car_when_parking_boy_fetch_given_parking_ticket(){
+    public void should_fetch_right_car_when_parking_boy_fetch_given_parking_ticket() {
         //given
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
@@ -32,7 +32,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    public void should_fetch_2_cars_when_fetch_with_tickets_given_parking_2_cars()  {
+    public void should_fetch_2_cars_when_fetch_with_tickets_given_parking_2_cars() {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
@@ -47,34 +47,34 @@ class ParkingBoyTest {
         assertSame(car2, fetchedCar2);
     }
 
-        @Test
+    @Test
     public void should_fetch_no_car_when_fetch_car_given_wrong_ticket() {
-            //given
+        //given
 
-            Car car = new Car();
-            ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
-            ParkingTicket wrongTicket = new ParkingTicket();
-            //when
-            RuntimeException exception = assertThrows(UnrecognizedTicketException.class, () -> {
-                parkingBoy.fetch(wrongTicket);
-            });
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
+        ParkingTicket wrongTicket = new ParkingTicket();
+        //when
+        RuntimeException exception = assertThrows(UnrecognizedTicketException.class, () -> {
+            parkingBoy.fetch(wrongTicket);
+        });
 
-            //then
-            assertEquals("Unrecognized parking ticket", exception.getMessage());
-        }
+        //then
+        assertEquals("Unrecognized parking ticket", exception.getMessage());
+    }
 
-        @Test
-    public void should_fetch_no_car_when_fetch_car_given_no_ticket(){
+    @Test
+    public void should_fetch_no_car_when_fetch_car_given_no_ticket() {
         //given
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(10)));
         //when
-            RuntimeException exception = assertThrows(MissingTicketException.class, () ->{
-                parkingBoy.fetch(null);
-            });
+        RuntimeException exception = assertThrows(MissingTicketException.class, () -> {
+            parkingBoy.fetch(null);
+        });
 
         //then
-            assertEquals("Missing ticket", exception.getMessage());
+        assertEquals("Missing ticket", exception.getMessage());
     }
 
     @Test
@@ -102,7 +102,7 @@ class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(1)));
         parkingBoy.park(car);
         //when
-        RuntimeException exception = assertThrows(NotEnoughCapacity.class, () ->{
+        RuntimeException exception = assertThrows(NotEnoughCapacity.class, () -> {
             parkingBoy.park(car2);
         });
         //then
@@ -110,7 +110,7 @@ class ParkingBoyTest {
     }
 
     @Test
-        public void should_park_sequentially_when_park_given_multiple_parking_lots() {
+    public void should_park_sequentially_when_park_given_multiple_parking_lots() {
         //given
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(3)

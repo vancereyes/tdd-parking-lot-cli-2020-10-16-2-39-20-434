@@ -1,6 +1,5 @@
 package com.oocl.cultivation;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +17,7 @@ public class ParkingLot {
         this(10);
     }  //remove
 
-    public boolean isFull(){
+    public boolean isFull() {
         return capacity == getParkedCarsSize();
     }
 
@@ -34,7 +33,7 @@ public class ParkingLot {
         }
     }
 
-    public Car fetch(ParkingTicket parkingTicket){
+    public Car fetch(ParkingTicket parkingTicket) {
 
         Car car = ticketCarMap.get(parkingTicket);
         ticketCarMap.remove(parkingTicket);
