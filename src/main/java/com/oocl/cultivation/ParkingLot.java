@@ -27,7 +27,7 @@ public class ParkingLot {
         if (capacity > 0) {
             ParkingTicket ticket = new ParkingTicket();
             ticketCarMap.put(ticket, car);
-            capacity -= 1; //subtract mapsize
+            capacity -= ticketCarMap.size();
             return ticket;
         } else {
             throw new NotEnoughCapacity("Not enough capacity");

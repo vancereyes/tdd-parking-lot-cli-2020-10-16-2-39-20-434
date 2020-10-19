@@ -12,7 +12,7 @@ public class ParkingBoy {
 
     public ParkingTicket park(Car car) {
 
-        for (ParkingLot parkingLot : parkingLotArrayList) {  //streamapi
+        for (ParkingLot parkingLot : parkingLotArrayList) { //streamapi
             if (!parkingLot.isFull()){
                 return parkingLot.park(car);
             }
