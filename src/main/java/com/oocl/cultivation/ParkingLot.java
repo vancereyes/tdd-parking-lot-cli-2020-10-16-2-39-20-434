@@ -13,9 +13,7 @@ public class ParkingLot {
 
     private Map<ParkingTicket, Car> ticketCarMap = new HashMap<>();
 
-    public ParkingLot() {
-        this(10);
-    }  //remove
+
 
     public boolean isFull() {
         return capacity == getParkedCarsSize();
