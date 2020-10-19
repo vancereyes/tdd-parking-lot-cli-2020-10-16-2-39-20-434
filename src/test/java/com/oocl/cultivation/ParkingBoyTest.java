@@ -93,7 +93,7 @@ class ParkingBoyTest {
         //then
         assertEquals("Unrecognized parking ticket", exception.getMessage());
     }
-    
+
     @Test
     public void should_return_no_ticket_and_park_fail_when_park_given_capacity_is_full() {
         //given
@@ -122,13 +122,6 @@ class ParkingBoyTest {
         assertEquals(0, parkingBoy.getParkingLotArrayList().get(1).getParkedCarsSize());
     }
 
-//    @Test
-//    public void should_park_to_parking_space_with_more_space_when_park_given_multiple_parking_lots() {
-//        //given
-//        //when
-//        //then
-//    }
-//
 }
 
     
