@@ -97,13 +97,13 @@ class ParkingBoyTest {
     @Test
     public void should_return_no_ticket_and_park_fail_when_park_given_capacity_is_full() {
         //given
-        Car car = new Car();
-        Car car2 = new Car();
+        Car firstCar = new Car();
+        Car secondCar = new Car();
         ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(1)));
-        parkingBoy.park(car);
+        parkingBoy.park(firstCar);
         //when
         RuntimeException exception = assertThrows(NotEnoughCapacity.class, () -> {
-            parkingBoy.park(car2);
+            parkingBoy.park(secondCar);
         });
         //then
         assertEquals("Not enough capacity", exception.getMessage());
