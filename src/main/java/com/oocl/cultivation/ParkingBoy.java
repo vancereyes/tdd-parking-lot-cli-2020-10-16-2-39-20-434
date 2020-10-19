@@ -12,7 +12,7 @@ public class ParkingBoy {
 
     public ParkingTicket park(Car car) {
 
-        for (ParkingLot parkingLot : parkingLotArrayList) {
+        for (ParkingLot parkingLot : parkingLotArrayList) {  //streamapi
             if (!parkingLot.isFull()){
                 return parkingLot.park(car);
             }
@@ -21,10 +21,8 @@ public class ParkingBoy {
 
     }
 
-
-
     public Car fetch(ParkingTicket parkingTicket) {
-        Car car = parkingLotArrayList.get(0).fetch(parkingTicket);
+        Car car = parkingLotArrayList.get(0).fetch(parkingTicket); //refactor
         if (car != null) {
             return car;
         } else if (parkingTicket == null){

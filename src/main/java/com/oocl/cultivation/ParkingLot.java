@@ -16,7 +16,7 @@ public class ParkingLot {
 
     public ParkingLot() {
         this(10);
-    }
+    }  //remove
 
     public boolean isFull(){
         return capacity == getParkedCarsSize();
@@ -27,7 +27,7 @@ public class ParkingLot {
         if (capacity > 0) {
             ParkingTicket ticket = new ParkingTicket();
             ticketCarMap.put(ticket, car);
-            capacity -= 1;
+            capacity -= 1; //subtract mapsize
             return ticket;
         } else {
             throw new NotEnoughCapacity("Not enough capacity");
@@ -39,10 +39,6 @@ public class ParkingLot {
         Car car = ticketCarMap.get(parkingTicket);
         ticketCarMap.remove(parkingTicket);
         return car;
-    }
-
-    public Map<ParkingTicket, Car> getTicketCarMap() {
-        return ticketCarMap;
     }
 
     public int getParkedCarsSize() {

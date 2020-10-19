@@ -2,9 +2,6 @@ package com.oocl.cultivation;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -125,8 +122,13 @@ class ParkingBoyTest {
         assertEquals(0, parkingBoy.getParkingLotArrayList().get(1).getParkedCarsSize());
     }
 
-
-
+//    @Test
+//    public void should_park_to_parking_space_with_more_space_when_park_given_multiple_parking_lots() {
+//        //given
+//        //when
+//        //then
+//    }
+//
 }
 
     
