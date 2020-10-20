@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ParkingBoy {
 
-    private List<ParkingLot> parkingLotArrayList;
+    protected List<ParkingLot> parkingLotArrayList;
 
     public ParkingBoy(List<ParkingLot> parkingLotArrayList) {
 
