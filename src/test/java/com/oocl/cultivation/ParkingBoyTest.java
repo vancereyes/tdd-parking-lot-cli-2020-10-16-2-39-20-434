@@ -109,19 +109,18 @@ class ParkingBoyTest {
     }
 
 
-//    @Test
-//    public void should_park_sequentially_when_park_given_multiple_parking_lots() {
-//        //given
-//        Car car = new Car();
-//        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(3)
-//                , new ParkingLot(3)));
-//        //when
-//        parkingBoy.park(car);
-//        //then
-//        assertEquals(1, parkingBoy.getParkingLotArrayList().get(0).getParkedCarsSize());
-//        assertEquals(0, parkingBoy.getParkingLotArrayList().get(1).getParkedCarsSize());
-//    }
-
+    @Test
+    public void should_park_sequentially_when_park_given_multiple_parking_lots() {
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(asList(new ParkingLot(3)
+                , new ParkingLot(3)));
+        //when
+        parkingBoy.park(car);
+        //then
+        assertEquals(1, parkingBoy.getParkingLotArrayList().get(0).getParkedCarsSize());
+        assertEquals(0, parkingBoy.getParkingLotArrayList().get(1).getParkedCarsSize());
+    }
 }
 
     
