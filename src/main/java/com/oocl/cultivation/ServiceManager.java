@@ -20,10 +20,14 @@ public class ServiceManager extends ParkingBoy{
     }
 
     public void addToManagementList(ParkingBoy parkingBoy) {
-
+        managementList.add(parkingBoy);
     }
 
     public ParkingTicket assignToParkCar(ParkingBoy parkingBoy, Car car) {
-        return null;
+        return managementList.stream()
+                .filter(parkingBoy1 -> parkingBoy1 == parkingBoy)
+                .findFirst()
+                .orElse(null)
+                .park(car);
     }
 }
