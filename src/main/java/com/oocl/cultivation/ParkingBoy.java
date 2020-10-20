@@ -18,14 +18,13 @@ public class ParkingBoy {
             }
         }
         return null;
-
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
         Car car = parkingLotArrayList.get(0).fetch(parkingTicket); //refactor
         if (car != null) {
             return car;
-        } else if (parkingTicket == null) {
+        } else if (parkingTicket == null) { //25
             throw new MissingTicketException("Missing ticket");
         } else {
             throw new UnrecognizedTicketException("Unrecognized parking ticket");

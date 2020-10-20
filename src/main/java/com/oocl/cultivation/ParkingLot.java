@@ -8,23 +8,24 @@ public class ParkingLot {
     int capacity;
 
     public ParkingLot(int capacity) {
-        this.capacity = capacity;
+        this.capacity = 10;
     }
 
     private Map<ParkingTicket, Car> ticketCarMap = new HashMap<>();
 
-
-
-    public boolean isFull() {
-        return capacity == getParkedCarsSize();
-    }
-
-
     public ParkingTicket park(Car car) {
-        if (capacity > 0) {
+//        if (capacity > 0) {
+//            ParkingTicket ticket = new ParkingTicket();
+//            ticketCarMap.put(ticket, car);
+//            capacity -= ticketCarMap.size();
+//            return ticket;
+//        } else {
+//            throw new NotEnoughCapacity("Not enough capacity");
+//        }
+
+        if(!isFull()){
             ParkingTicket ticket = new ParkingTicket();
             ticketCarMap.put(ticket, car);
-            capacity -= ticketCarMap.size();
             return ticket;
         } else {
             throw new NotEnoughCapacity("Not enough capacity");
@@ -40,6 +41,10 @@ public class ParkingLot {
 
     public int getParkedCarsSize() {
         return ticketCarMap.size();
+    }
+
+    public boolean isFull() {
+        return ticketCarMap.size() == capacity;
     }
 }
 
