@@ -12,9 +12,9 @@ public class SmartParkingBoy extends ParkingBoy {
     @Override
     public ParkingTicket park(Car car) {
 
-        return  parkingLotArrayList.stream()
+        return parkingLotArrayList.stream()
                 .max(Comparator.comparingInt(ParkingLot::getAvailableCapacity))
-                .orElseThrow(()->new NotEnoughCapacity("Not Enough Capacity"))
+                .orElseThrow(() -> new NotEnoughCapacity("Not Enough Capacity"))
                 .park(car);
     }
 }
