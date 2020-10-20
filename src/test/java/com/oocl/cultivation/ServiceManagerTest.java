@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ServiceManagerTest {
 
@@ -35,5 +34,18 @@ public class ServiceManagerTest {
         //then
         assertNotNull(parkingTicket);
     }
+
+    @Test
+    void should_return_ticket_when_parking_given_a_car_to_service_manager() {
+        //given
+        Car car = new Car();
+        ServiceManager serviceManager = new ServiceManager(asList(new ParkingLot()));
+        //when
+        ParkingTicket parkingTicket = serviceManager.park(car);
+        //then
+        assertNotNull(parkingTicket);
+    }
+
+
 
 }
