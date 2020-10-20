@@ -18,4 +18,12 @@ public class ServiceManager extends ParkingBoy{
     public List<ParkingBoy> getManagementList() {
         return managementList;
     }
+
+    public void addToManagementList(ParkingBoy parkingBoy) {
+
+    }
+
+    public ParkingTicket assignToParkCar(ParkingBoy parkingBoy, Car car) {
+        return null;
+    }
 }
