@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ServiceManagerTest {
 
@@ -17,7 +18,6 @@ public class ServiceManagerTest {
         serviceManager.addToList(parkingBoy);
         //when
         List<ParkingBoy> parkingBoyList = serviceManager.getManagementList();
-        ;
         //then
         assertEquals(1, parkingBoyList.size());
     }
@@ -45,7 +45,6 @@ public class ServiceManagerTest {
         //then
         assertNotNull(parkingTicket);
     }
-
 
 
 }
