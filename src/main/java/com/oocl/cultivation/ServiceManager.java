@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceManager extends ParkingBoy{
+public class ServiceManager extends ParkingBoy {
     private List<ParkingBoy> managementList;
 
     public ServiceManager(List<ParkingLot> parkingLotArrayList) {
@@ -30,4 +30,5 @@ public class ServiceManager extends ParkingBoy{
                 .orElse(null)
                 .park(car);
     }
+
 }

@@ -1,6 +1,5 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.Exception.NotEnoughCapacity;
 import com.oocl.cultivation.Strategy.CommonFetching;
 import com.oocl.cultivation.Strategy.Fetching;
 import com.oocl.cultivation.Strategy.Parking;

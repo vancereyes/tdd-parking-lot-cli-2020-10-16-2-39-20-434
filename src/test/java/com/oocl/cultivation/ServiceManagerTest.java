@@ -46,5 +46,4 @@ public class ServiceManagerTest {
         assertNotNull(parkingTicket);
     }
 
-
 }

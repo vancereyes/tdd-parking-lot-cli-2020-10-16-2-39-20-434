@@ -1,9 +1,7 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.Exception.NotEnoughCapacity;
 import com.oocl.cultivation.Strategy.HigherRatioParking;
 
-import java.util.Comparator;
 import java.util.List;
 
 public class SuperSmartParkingBoy extends ParkingBoy {

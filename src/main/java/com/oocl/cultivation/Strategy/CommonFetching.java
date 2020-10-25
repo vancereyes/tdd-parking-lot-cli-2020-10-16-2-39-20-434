@@ -10,21 +10,6 @@ import java.util.List;
 
 public class CommonFetching implements Fetching {
 
-//    @Override
-//    public Car fetch(ParkingTicket parkingTicket) {
-//        boolean noTicket = (parkingTicket == null);
-//
-//        if (noTicket) {
-//            throw new MissingTicketException("Missing ticket");
-//        } else {
-//            return parkingLotArrayList.stream()
-//                    .filter(parkingLot -> parkingLot.hasTicket(parkingTicket))
-//                    .findFirst()
-//                    .orElseThrow(() -> new UnrecognizedTicketException("Unrecognized parking ticket"))
-//                    .fetch(parkingTicket);
-//        }
-//    }
-
     @Override
     public Car fetch(ParkingTicket parkingTicket, List<ParkingLot> parkingLots) {
         boolean noTicket = (parkingTicket == null);
