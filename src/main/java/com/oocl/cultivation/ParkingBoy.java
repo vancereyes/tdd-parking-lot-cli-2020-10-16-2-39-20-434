@@ -1,20 +1,21 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.Exception.MissingTicketException;
 import com.oocl.cultivation.Exception.NotEnoughCapacity;
-import com.oocl.cultivation.Exception.UnrecognizedTicketException;
+import com.oocl.cultivation.Strategy.CommonFetching;
+import com.oocl.cultivation.Strategy.Fetching;
 
 import java.util.List;
 
 public class ParkingBoy {
 
-    protected List<ParkingLot> parkingLotArrayList;
+    public List<ParkingLot> parkingLotArrayList;
+    public Fetching fetching;
+
 
     public ParkingBoy(List<ParkingLot> parkingLotArrayList) {
-
         this.parkingLotArrayList = parkingLotArrayList;
+        fetching = new CommonFetching();
     }
-
 
     public ParkingTicket park(Car car) {
 
@@ -26,17 +27,7 @@ public class ParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        boolean noTicket = (parkingTicket == null);
-
-        if (noTicket) {
-            throw new MissingTicketException("Missing ticket");
-        } else {
-            return parkingLotArrayList.stream()
-                    .filter(parkingLot -> parkingLot.hasTicket(parkingTicket))
-                    .findFirst()
-                    .orElseThrow(() -> new UnrecognizedTicketException("Unrecognized parking ticket"))
-                    .fetch(parkingTicket);
-        }
+        return fetching.fetch(parkingTicket, parkingLotArrayList);
     }
 
     public List<ParkingLot> getParkingLotArrayList() {
